@@ -1,0 +1,193 @@
+---
+title: "Clustering"
+---
+
+## :blue_heart: What is clustering?
+Clustering is <span style="color: red;">unsupervised </span> machine learning for not having a target variable or class label. Clustering takes unlabeled data as input and group them into several clusters based on certain similarities. They are many types of clustering methods, let's take a look at some examples: 
+
+##### **Partitioning Method**
+
+* **K-Means Clustering**: The most popular partitioning method. It divides the dataset into K clusters by minimizing the sum of squared distances between data points and their respective cluster centroids. First, you need to select the number of clusters. The algorithm then iteratively improves the clusters by recalculating the centroid of each cluster and reassigning data points to the new clusters.
+
+##### **Fuzzy Clustering**
+* **Fuzzy C-Means**: Similar to K-means but allows data points to belong to multiple clusters with varying degrees of membership. The algorithm depends on a parameter m which corresponds to the degree of fuzziness of the solution. Large values of m will blur the classes and all elements tend to belong to all clusters. 
+
+![Difference between hard clustering and soft clustering: Hard clustering means that each data point is assigned to a specific cluster, and soft clustering means that each data point is assigned a probability of belonging to each cluster. ](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*zKHCMnHzlLGrxgAWY8RDtw.png)
+
+##### **Deep Learning-Based Methods**
+* **Self-Organizing Maps**: A self-organizing map consists of a set of neurons that are arranged in a rectangular or hexagonal grid. Each neuronal unit in the grid is associated with a numerical vector of fixed dimensionality. The learning process of a self-organizing map involves the adjustment of these vectors to provide a suitable representation of the input data. Neural networks that produce a low-dimensional (typically two-dimensional) representation of the training data, preserving topological properties. Self-organizing maps can be used for clustering numerical data in vector format.
+
+##### **Hierarchical Methods**
+Partitioning clustering is a method of clustering data points into a set number of groups, while hierarchical clustering is a method of creating a hierarchy of clusters, with each cluster containing a subset of the data points. Partitioning clustering is typically faster than hierarchical clustering, but hierarchical clustering can produce more accurate results.
+
+* Agglomerative: A bottom-up approach where each data point starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
+
+* Divisive: A top-down approach starting with all points in one cluster and recursively splitting them into smaller clusters.
+
+##### **Density-Based Methods**
+* **Mean Shift**: A sliding-window-based method that tries to find dense areas by updating candidates for centroids to be the mean of the points within a given region. 
+
+We can understand this algorithm by thinking of our data points to be represented as a probability density function. Naturally, in a probability function, higher density regions will correspond to the regions with more points, and lower density regions will correspond to the regions with less points. In clustering, we need to find clusters of points, i.e the regions with a lot of points together. More points together mean higher density. Hence, we observe that clusters of points are more like the higher density regions in our probability density function. So, we must iteratively go from lower density to higher density regions, in order to find our clusters.
+
+![Different clustering algorithms on different shapes of data](https://scikit-learn.org/stable/_images/sphx_glr_plot_cluster_comparison_001.png)
+
+## :purple_heart: Common tasks and real-world examples
+Clustering can be used for a variety of tasks, such as grouping similar items together for recommendation systems, identifying customer segments for marketing purposes, or detecting anomalies in data.
+
+* Search engines: Search engines try to group similar objects in one cluster and the dissimilar objects far from each other. It provides results for the searched data according to the nearest similar object which is clustered around the data to be searched.
+
+## :heart: HDBSCAN 
+HDBSCAN stands for Hierarchical Density-Based Spatial Clustering of Applications with Noise, which is a a density based (hierarchical) clustering algorithm. 
+
+```{python}
+#| echo: false
+import hdbscan
+from tqdm import tqdm
+import pandas as pd
+import numpy as np
+from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from dotenv import load_dotenv
+
+load_dotenv()
+
+np.random.seed(1)
+
+
+def cluster_summary(df, sample_size=3):
+    """
+    use gpt-3.5-turbo to create summary of each cluster
+    """
+    template="""You will be given a dataset with different tweets. You need to identify the category for those tweets and use a few words to describe them. Tweets: {s}"""
+    llm=ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
+    summary = []
+    prompt = PromptTemplate(template=template, input_variables=["s"])
+    for i in tqdm(df['cluster'].unique()):
+        sample = df[df['cluster']==i].sample(sample_size)
+        s=sample[["tweet"]].to_dict(orient="records")
+        print(f'\nAsking the LLM for a summary for cluster indexed {i}. \n')
+        llm_chain = LLMChain(prompt=prompt, llm=llm)
+        gen=llm_chain.run(s)
+        print(gen)
+
+        summary.append(gen)
+
+    return summary
+```
+
+
+First, let's retrieve some Twitter post data from Huggingface and use OpenAI to obtain the embeddings for clustering. 
+```{python}
+from datasets import load_dataset
+
+dataset = load_dataset("cardiffnlp/tweet_topic_single", split="train_2021")
+embeddings = OpenAIEmbeddings(chunk_size=1000).embed_documents(dataset["text"])
+```
+
+Check the size of embeddings:
+```{python}
+tensor=np.array(embeddings)
+tensor.shape
+```
+
+
+Since the embeddings are of very high dimensions, we will perform a simple dimension reduction technique. 
+
+```{python}
+import numpy as np
+import pandas as pd
+
+# For plotting
+from matplotlib import offsetbox
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.manifold import TSNE
+
+tsne = TSNE(random_state = 1, n_components=2,verbose=0).fit_transform(tensor)
+tsne.shape
+```
+
+Next, we preprocess the data into a cleaner dataframe and apply HDBSCAN to this 2-dimensional data to obtain the cluster labels.
+
+```{python}
+cluster = hdbscan.HDBSCAN(min_cluster_size=20, prediction_data=True).fit(tsne)
+
+df = pd.DataFrame({
+    "tweet": dataset["text"],
+    "label": dataset["label_name"],
+    "cluster": cluster.labels_,
+})
+
+#df = df[df["cluster"] != -1] #remove outliers
+
+df.head(5)
+
+
+```
+
+We can use ChatGPT to understand our clusters better by prompting ChatGPT to provide keywords and a short description for each cluster.
+```{python}
+from openai import OpenAI
+
+client = OpenAI()
+
+def cluster_summary(df, sample_size=3):
+
+    summary = []
+    for i in tqdm(df['cluster'].unique()):
+        sample = df[df['cluster']==i].sample(sample_size, random_state=1)
+        s=sample[["tweet"]].to_dict(orient="records")
+        print(f'\nAsking the LLM for a summary for cluster indexed {i}. \n')
+        content = f"""You will be given a dataset with some tweets. You need to identify the category for those given tweets and shortly describe it. Tweets: {s}"""
+        
+        print("Ground truth labels: "+ ", ".join(sample["label"].to_list()))
+        
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "user", "content": content}],
+            temperature=0.5,
+            max_tokens=64,
+            top_p=1
+        )
+        print(response.choices[0].message.content)
+
+        summary.append(response)
+
+cluster_summary(df,3)
+
+```
+
+Finally, let's visualize our clusters to see how HDBSCAN works!
+```{python}
+plt.scatter(tsne[:, 0], tsne[:, 1],s=5, c=df["cluster"])
+plt.gca().set_aspect('equal', 'datalim')
+plt.colorbar()
+plt.title('Tweets topic t-SNE', fontsize=20);
+```
+
+
+We can also visualize the clustering results without dimention reduction, let's see how that works!
+```{python}
+cluster = hdbscan.HDBSCAN(min_cluster_size=20, prediction_data=True).fit(embeddings)
+
+df1 = pd.DataFrame({
+    "tweet": dataset["text"],
+    "label": dataset["label_name"],
+    "cluster": cluster.labels_,
+})
+plt.scatter(tsne[:, 0], tsne[:, 1],s=5, c=df1["cluster"])
+plt.gca().set_aspect('equal', 'datalim')
+plt.colorbar()
+plt.title('Tweets topic t-SNE (without dim-reduction)', fontsize=20);
+```
+
+### Ref
+[Intro-1](https://climbtheladder.com/clustering-interview-questions/)
+[Intro-2](https://www.mlstack.cafe/interview-questions/clustering)
+[Fuzzy-C](https://medium.com/geekculture/fuzzy-c-means-clustering-fcm-algorithm-in-machine-learning-c2e51e586fff)
+[data](https://huggingface.co/datasets/cardiffnlp/tweet_topic_single)
+[hdbscan explain](https://nbviewer.org/github/scikit-learn-contrib/hdbscan/blob/master/notebooks/How%20HDBSCAN%20Works.ipynb)

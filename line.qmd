@@ -1,0 +1,9 @@
+---
+title: "Linear and non-linear regression"
+---
+
+First blog
+
+```{python}
+print("Hello world")
+```

@@ -1,0 +1,9 @@
+hdbscan
+openai
+langchain
+pandas
+datasets
+python-dotenv
+tiktoken
+matplotlib
+seaborn

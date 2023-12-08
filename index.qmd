@@ -1,7 +1,13 @@
 ---
-title: "blog"
+title: "CS 5805 Final Project"
 ---
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+# Blog 1 [Probability theory and random variables](prob.qmd)
+# Blog 2 [Clustering](clus.qmd)
+# Blog 3 [Linear and non-linear regression](line.qmd)
+# Blog 4 [Classification](clas.qmd)
+# Blog 5 [Anomaly/outlier detection](outl.qmd)

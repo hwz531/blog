@@ -1,0 +1,9 @@
+---
+title: "Anomaly/outlier detection"
+---
+
+First blog
+
+```{python}
+print("Hello world")
+```

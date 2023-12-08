@@ -8,6 +8,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+  repo-url: https://github.com/hwz531/blog
+  repo-actions: [source]
 
 format:
   html:

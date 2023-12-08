@@ -1,4 +1,6 @@
 /blog/
 /.quarto/
 /_site/
-/.luarc.json
+/.luarc.json/
+/_environment/
+/.env
