@@ -875,7 +875,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>anomaly_indices <span class="op">=</span> np.where(anomalies <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>)[<span class="dv">0</span>]</span>
 <span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot some of the detected anomalies</span></span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">3</span>))</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">3</span>))</span>
 <span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, idx <span class="kw">in</span> <span class="bu">enumerate</span>(anomaly_indices[:<span class="dv">4</span>]):</span>
 <span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>    axs[i].imshow(images[idx].reshape(<span class="dv">64</span>, <span class="dv">64</span>,<span class="dv">3</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
 <span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>    axs[i].axis(<span class="st">'off'</span>)</span>
