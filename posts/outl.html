@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>anomaly_indices <span class="op">=</span> np.where(anomalies <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>)[<span class="dv">0</span>]</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot some of the detected anomalies</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">3</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">3</span>))</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, idx <span class="kw">in</span> <span class="bu">enumerate</span>(anomaly_indices[:<span class="dv">4</span>]):</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    axs[i].imshow(images[idx].reshape(<span class="dv">64</span>, <span class="dv">64</span>,<span class="dv">3</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    axs[i].axis(<span class="st">'off'</span>)</span>
@@ -264,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="outl_files/figure-html/cell-5-output-1.png" width="1150" height="269"></p>
+<p><img src="outl_files/figure-html/cell-5-output-1.png" width="1114" height="261"></p>
 </div>
 </div>
 <p>We can see the detection is not very good, the model seems to only capture the black and white color as the anomalies, which might not always hold true for all types of anomalies in image data.</p>
@@ -272,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="outliers-from-hdbscan" class="level2">
 <h2 class="anchored" data-anchor-id="outliers-from-hdbscan"><span class="emoji" data-emoji="heart">❤️</span> Outliers from HDBSCAN</h2>
-<p>We looked at twitter topic modeling with HDBSCAN clustering in the <a href="https://hwz531.github.io/blog/posts/clus.html#hdbscan">Clustering</a> blog. We removed outliers at the time, now let’s plot the outliers too. Cluster -1 in HDBSCAN is the collection of outliers.</p>
+<p>We looked at twitter topic modeling with HDBSCAN clustering in the <a href="https://hwz531.github.io/blog/posts/clus.html#hdbscan">Clustering</a> blog. We removed outliers at the time, now let’s plot the outliers too. Cluster -1 in HDBSCAN clusters is the collection of outliers.</p>
 <div class="cell" data-execution_count="5">
 <details>
 <summary>Code</summary>
@@ -315,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Text(0.5, 1.0, 'Tweets topic t-SNE')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="outl_files/figure-html/cell-6-output-2.png" width="559" height="440"></p>
+<p><img src="outl_files/figure-html/cell-6-output-2.png" width="547" height="440"></p>
 </div>
 </div>
 <p>Let’s take a look at what kind of tweets are outliers</p>
@@ -339,33 +339,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Barbara Bailey is the queen of broadcast news ...</td>
+<td>pop_culture</td>
+<td>-1</td>
+</tr>
+<tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>start the 20-21 school year off POSITIVE! let’...</td>
 <td>daily_life</td>
 <td>-1</td>
 </tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Worth watching at least the 1st 10mins if I wa...</td>
+<td>pop_culture</td>
+<td>-1</td>
+</tr>
 <tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>There s regular people and then there s {@Bail...</td>
+<td>pop_culture</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>Up with new grace, truly sorry on behalf of {@...</td>
 <td>pop_culture</td>
-<td>-1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">15</td>
-<td>#VwithSudheer {@Sudheer Babu@} don t know why ...</td>
-<td>pop_culture</td>
-<td>-1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">30</td>
-<td>I spoke to ESPN about the air quality issues t...</td>
-<td>sports_&amp;_gaming</td>
-<td>-1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">37</td>
-<td>Sources Re Air Quality: {@Dallas Cowboys@} (pi...</td>
-<td>sports_&amp;_gaming</td>
 <td>-1</td>
 </tr>
 </tbody>
@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="ref" class="level3">
 <h3 class="anchored" data-anchor-id="ref">Ref</h3>
-<p><a href="https://pyimagesearch.com/2020/01/20/intro-to-anomaly-detection-with-opencv-computer-vision-and-scikit-learn/">Isolation-forest</a> <a href="https://plotly.com/python/figure-labels/">ploty</a> <a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">roc</a></p>
+<p><a href="https://pyimagesearch.com/2020/01/20/intro-to-anomaly-detection-with-opencv-computer-vision-and-scikit-learn/">Isolation-forest</a></p>
 
 
 <!-- -->
