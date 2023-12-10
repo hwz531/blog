@@ -311,44 +311,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Barbara Bailey is the queen of broadcast news ...</td>
+<td>pop_culture</td>
+<td>2</td>
+<td>2.815385</td>
+<td>-4.618085</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>There s regular people and then there s {@Bail...</td>
+<td>pop_culture</td>
+<td>2</td>
+<td>3.692987</td>
+<td>-4.774335</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>POWER BOOK 2 EPISODE 1 REVIEW!! (MY THOUGHTS) ...</td>
+<td>pop_culture</td>
+<td>2</td>
+<td>5.896851</td>
+<td>17.536180</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>you cannot simultaneously prepare and prevent...</td>
+<td>pop_culture</td>
+<td>2</td>
+<td>10.823426</td>
+<td>11.094867</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>The time is now! The 1st edition of the 192 ...</td>
 <td>arts_&amp;_culture</td>
-<td>4</td>
-<td>15.623134</td>
-<td>-2.626489</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Labor Day Weekend Raffle - Apple Watch, Fitbit...</td>
-<td>business_&amp;_entrepreneurs</td>
-<td>4</td>
-<td>4.601226</td>
-<td>1.058679</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">11</td>
-<td>#repost {@Shantel VanSanten@} ・・・ 107 degrees ...</td>
-<td>daily_life</td>
-<td>4</td>
-<td>4.878038</td>
-<td>2.982442</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Happy Labor Day Weekend from the team {{USERNA...</td>
-<td>business_&amp;_entrepreneurs</td>
-<td>4</td>
-<td>4.059176</td>
-<td>1.727288</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>Coming up this week on {{USERNAME}} (revised l...</td>
-<td>pop_culture</td>
 <td>2</td>
-<td>31.269650</td>
-<td>-0.975538</td>
+<td>6.077450</td>
+<td>8.689940</td>
 </tr>
 </tbody>
 </table>
@@ -390,60 +390,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>cluster_summary(df,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>  0%|          | 0/7 [00:00&lt;?, ?it/s] 14%|█▍        | 1/7 [00:02&lt;00:16,  2.71s/it] 29%|██▊       | 2/7 [00:05&lt;00:12,  2.49s/it] 43%|████▎     | 3/7 [00:07&lt;00:10,  2.52s/it] 57%|█████▋    | 4/7 [00:10&lt;00:08,  2.74s/it] 71%|███████▏  | 5/7 [00:13&lt;00:05,  2.75s/it] 86%|████████▌ | 6/7 [00:16&lt;00:02,  2.74s/it]100%|██████████| 7/7 [00:18&lt;00:00,  2.62s/it]100%|██████████| 7/7 [00:18&lt;00:00,  2.65s/it]</code></pre>
+<pre><code>  0%|          | 0/5 [00:00&lt;?, ?it/s] 20%|██        | 1/5 [00:02&lt;00:10,  2.59s/it] 40%|████      | 2/5 [00:04&lt;00:07,  2.40s/it] 60%|██████    | 3/5 [00:07&lt;00:04,  2.40s/it] 80%|████████  | 4/5 [00:09&lt;00:02,  2.45s/it]100%|██████████| 5/5 [00:12&lt;00:00,  2.40s/it]100%|██████████| 5/5 [00:12&lt;00:00,  2.42s/it]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-Asking the LLM for a summary for cluster indexed 4. 
-
-Ground truth labels: science_&amp;_technology, arts_&amp;_culture, arts_&amp;_culture
-Based on the given tweets, the following categories can be identified:
-
-1. Book Review: The first tweet mentions a sci-fi trilogy and includes the hashtag #bookreviews. It seems to be discussing a book called "The Trials of Koli" and possibly recommending it to others.
-
-2. Day of the Dead: The
-
 Asking the LLM for a summary for cluster indexed 2. 
+
+Ground truth labels: business_&amp;_entrepreneurs, daily_life, daily_life
+The first tweet is related to job hiring and marketing opportunities. It mentions the company's achievements in November and highlights the potential for a great storyteller. The tweet invites interested individuals to inquire for more details.
+
+The second tweet conveys a message about finding joy in the small things in life. It mentions a person named Kyle
+
+Asking the LLM for a summary for cluster indexed 3. 
 
 Ground truth labels: pop_culture, pop_culture, pop_culture
 Based on the given tweets, the categories for each tweet can be described as follows:
 
-1. Tweet 1: Category - Music Promotion
-   Description: This tweet is promoting a music video by Spice, Sean Paul, and Shaggy. It includes the official music video link and mentions the artists involved, such as
-
-Asking the LLM for a summary for cluster indexed 6. 
-
-Ground truth labels: sports_&amp;_gaming, sports_&amp;_gaming, sports_&amp;_gaming
-Category 1: College Football Criticism
-Description: The first tweet expresses dissatisfaction with Ohio State's inclusion in the College Football Playoff (CFP). The tweeter argues that Ohio State has only played six games and struggled against average teams, suggesting that they do not deserve a spot in the CFP. The tweet mentions
-
-Asking the LLM for a summary for cluster indexed 5. 
-
-Ground truth labels: sports_&amp;_gaming, sports_&amp;_gaming, sports_&amp;_gaming
-The first tweet is about Giannis going down and how it might be good for the Bucks as it takes the pressure off everyone trying to force him. The person suggests letting the other players play. The category for this tweet could be "Opinion on team dynamics and strategy in basketball."
-
-The second tweet criticizes the Bucks
+1. Tweet 1: Music Appreciation
+   Description: This tweet is expressing appreciation for the music crew on NBC Entertainment's show, specifically mentioning the artist "Drivin N Cryin." The hashtag "#aintitstrange
 
 Asking the LLM for a summary for cluster indexed 1. 
 
-Ground truth labels: pop_culture, pop_culture, pop_culture
-Based on the given tweets, the category for these tweets appears to be related to voting and supporting the K-pop group BTS. The tweets mention voting for BTS under different categories such as "TheGroup" at the 2020 PCAs (People's Choice Awards) and "#Butter" and "#ARMY" at
+Ground truth labels: sports_&amp;_gaming, sports_&amp;_gaming, sports_&amp;_gaming
+Category: Sports
 
-Asking the LLM for a summary for cluster indexed 3. 
-
-Ground truth labels: pop_culture, daily_life, science_&amp;_technology
-Based on the given tweets, we can identify the following categories:
-
-1. Political Support: The first tweet mentions Trump supporters singing "God Bless America" in Scranton. It indicates support for Donald Trump and can be categorized as a political support tweet.
-
-2. Entertainment: The second tweet states that the CDC has confirmed it
+Description: The given tweets are related to sports. The first tweet discusses an NFLDraft conspiracy theory, reviews the Houston Sports Awards, and includes an interview with Gary Kubiak. The second tweet mentions a 21-year-old Southampton left-back likely leaving the club on loan. The third tweet features an
 
 Asking the LLM for a summary for cluster indexed 0. 
 
 Ground truth labels: sports_&amp;_gaming, sports_&amp;_gaming, sports_&amp;_gaming
-Based on the given tweets, the categories for each tweet can be identified as follows:
+The first tweet is about a boxing match between Loma and Teofimo Lopez. The person mentions that Loma started slow but dominated the second half of the fight. They also mention that if Loma had won the final round, it would have been a draw. The category for this tweet could be "Sports -
 
-1. Tweet 1: Mixed Martial Arts (MMA) - This tweet discusses TJ Dillashaw's striking skills in the UFC and specifically focuses on how he sets up kicks to the head. It mentions Duane Bang Ludwig</code></pre>
+Asking the LLM for a summary for cluster indexed 4. 
+
+Ground truth labels: pop_culture, pop_culture, pop_culture
+The given tweets belong to the category of BTS fandom. 
+
+1. The first tweet expresses the person's liking for the song "WHO" by LV, JK &amp; JM, which likely refers to members of BTS (LV - V, JK - Jungkook, JM - Jimin). They mention identifying with the story</code></pre>
 </div>
 </div>
 <p>Finally, let’s visualize our clusters to see how HDBSCAN works!</p>
@@ -459,7 +442,7 @@ Based on the given tweets, the categories for each tweet can be identified as fo
 <pre><code>Text(0.5, 1.0, 'Tweets topic t-SNE')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="clus_files/figure-html/cell-8-output-2.png" width="536" height="440"></p>
+<p><img src="clus_files/figure-html/cell-8-output-2.png" width="548" height="440"></p>
 </div>
 </div>
 <p>We can also visualize the clustering results without dimention reduction, let’s see how that works!</p>
@@ -476,12 +459,16 @@ Based on the given tweets, the categories for each tweet can be identified as fo
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne[:, <span class="dv">0</span>], tsne[:, <span class="dv">1</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df1[<span class="st">"cluster"</span>])</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE (without dim-reduction)'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE (without dim-reduction)'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>Text(0.5, 1.0, 'Tweets topic t-SNE (without dim-reduction)')</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="clus_files/figure-html/cell-9-output-1.png" width="608" height="440"></p>
+<p><img src="clus_files/figure-html/cell-9-output-2.png" width="608" height="440"></p>
 </div>
 </div>
+<p>Almost all data points are outliers, the clustering doesn’t work well without dimention reduction. For more about outliers, please check my <a href="https://hwz531.github.io/blog/posts/outl.html#outliers-from-hdbscan">Anomaly/outlier detection</a> blog!</p>
 <section id="ref" class="level3">
 <h3 class="anchored" data-anchor-id="ref">Ref</h3>
 <p><a href="https://climbtheladder.com/clustering-interview-questions/">Intro-1</a> <a href="https://www.mlstack.cafe/interview-questions/clustering">Intro-2</a> <a href="https://medium.com/geekculture/fuzzy-c-means-clustering-fcm-algorithm-in-machine-learning-c2e51e586fff">Fuzzy-C</a> <a href="https://huggingface.co/datasets/cardiffnlp/tweet_topic_single">data</a> <a href="https://nbviewer.org/github/scikit-learn-contrib/hdbscan/blob/master/notebooks/How%20HDBSCAN%20Works.ipynb">hdbscan explain</a></p>
@@ -894,208 +881,208 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://utteranc.es/client.js" repo="hwz531/blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Clustering"</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## :blue_heart: What is clustering?</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>Clustering is <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color: red;"</span><span class="kw">&gt;</span>unsupervised <span class="kw">&lt;/span&gt;</span> machine learning for not having a target variable or class label. Clustering takes unlabeled data as input and group them into several clusters based on certain similarities. They are many types of clustering methods, let's take a look at some examples: </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Partitioning Method**</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**K-Means Clustering**: The most popular partitioning method. It divides the dataset into K clusters by minimizing the sum of squared distances between data points and their respective cluster centroids. First, you need to select the number of clusters. The algorithm then iteratively improves the clusters by recalculating the centroid of each cluster and reassigning data points to the new clusters.</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Fuzzy Clustering**</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Fuzzy C-Means**: Similar to K-means but allows data points to belong to multiple clusters with varying degrees of membership. The algorithm depends on a parameter m which corresponds to the degree of fuzziness of the solution. Large values of m will blur the classes and all elements tend to belong to all clusters. </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="al">![Difference between hard clustering and soft clustering: Hard clustering means that each data point is assigned to a specific cluster, and soft clustering means that each data point is assigned a probability of belonging to each cluster. ](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*zKHCMnHzlLGrxgAWY8RDtw.png)</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Deep Learning-Based Methods**</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Self-Organizing Maps**: A self-organizing map consists of a set of neurons that are arranged in a rectangular or hexagonal grid. Each neuronal unit in the grid is associated with a numerical vector of fixed dimensionality. The learning process of a self-organizing map involves the adjustment of these vectors to provide a suitable representation of the input data. Neural networks that produce a low-dimensional (typically two-dimensional) representation of the training data, preserving topological properties. Self-organizing maps can be used for clustering numerical data in vector format.</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Hierarchical Methods**</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>Partitioning clustering is a method of clustering data points into a set number of groups, while hierarchical clustering is a method of creating a hierarchy of clusters, with each cluster containing a subset of the data points. Partitioning clustering is typically faster than hierarchical clustering, but hierarchical clustering can produce more accurate results.</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Agglomerative**: A bottom-up approach where each data point starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Divisive**: A top-down approach starting with all points in one cluster and recursively splitting them into smaller clusters.</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Density-Based Methods**</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Mean Shift**: A sliding-window-based method that tries to find dense areas by updating candidates for centroids to be the mean of the points within a given region. </span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>We can understand this algorithm by thinking of our data points to be represented as a probability density function. Naturally, in a probability function, higher density regions will correspond to the regions with more points, and lower density regions will correspond to the regions with less points. In clustering, we need to find clusters of points, i.e the regions with a lot of points together. More points together mean higher density. Hence, we observe that clusters of points are more like the higher density regions in our probability density function. So, we must iteratively go from lower density to higher density regions, in order to find our clusters.</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="al">![Different clustering algorithms on different shapes of data](https://scikit-learn.org/stable/_images/sphx_glr_plot_cluster_comparison_001.png)</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## :purple_heart: Common tasks and real-world examples</span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>Clustering can be used for a variety of tasks, such as</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Recommendation systems**: Recommendation systems group similar items together and discover underlying connections without pre-defined categories. It recommends similar content and identifies customer segments for marketing purposes.</span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Search engines**: Search engines try to group related objects together in a cluster and place different things far apart. It produces search results for the desired data based on the closest comparable items which are grouped around the desired search standards.  </span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Topic modeling**: Topic modeling is a method used in text mining to discover abstract topics within a collection of text crops. Perform clustering on the reduced text feature space to get groups of text crops, and each cluster can be interpreted as a topic.</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## :heart: HDBSCAN </span></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>HDBSCAN stands for Hierarchical Density-Based Spatial Clustering of Applications with Noise, which is a a density based (hierarchical) clustering algorithm. HDBSCAN is a versatile clustering algorithm that can handle complex real-world data sets with varying densities and noise. Therefore it's used in a wide range of domains, especially for high-dimensional data such as image clustering, anomaly detection, and topic modeling, for the ability to handle different data sizes and shapes and pre-select the number of clusters.</span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hdbscan</span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.llms <span class="im">import</span> OpenAI</span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chat_models <span class="im">import</span> ChatOpenAI</span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.embeddings.openai <span class="im">import</span> OpenAIEmbeddings</span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> LLMChain</span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_summary(df, sample_size<span class="op">=</span><span class="dv">3</span>):</span>
-<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a><span class="co">    use gpt-3.5-turbo to create summary of each cluster</span></span>
-<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"""You will be given a dataset with different tweets. You need to identify the category for those tweets and use a few words to describe them. Tweets: </span><span class="sc">{s}</span><span class="st">"""</span></span>
-<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>    llm<span class="op">=</span>ChatOpenAI(temperature<span class="op">=</span><span class="dv">0</span>, model_name<span class="op">=</span><span class="st">"gpt-3.5-turbo"</span>)</span>
-<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> []</span>
-<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">=</span> PromptTemplate(template<span class="op">=</span>template, input_variables<span class="op">=</span>[<span class="st">"s"</span>])</span>
-<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(df[<span class="st">'cluster'</span>].unique()):</span>
-<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>        sample <span class="op">=</span> df[df[<span class="st">'cluster'</span>]<span class="op">==</span>i].sample(sample_size)</span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span>sample[[<span class="st">"tweet"</span>]].to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span>
-<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">Asking the LLM for a summary for cluster indexed </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">. </span><span class="ch">\n</span><span class="ss">'</span>)</span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>        llm_chain <span class="op">=</span> LLMChain(prompt<span class="op">=</span>prompt, llm<span class="op">=</span>llm)</span>
-<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>        gen<span class="op">=</span>llm_chain.run(s)</span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(gen)</span>
-<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>        summary.append(gen)</span>
-<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> summary</span>
-<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>In the following parts, I will share an example of using HDBSCAN for topic modeling. First, let's retrieve some Twitter post data from Huggingface and use OpenAI to obtain the embeddings for clustering. </span>
-<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
-<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">"cardiffnlp/tweet_topic_single"</span>, split<span class="op">=</span><span class="st">"train_2021"</span>)</span>
-<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> OpenAIEmbeddings(chunk_size<span class="op">=</span><span class="dv">1000</span>).embed_documents(dataset[<span class="st">"text"</span>])</span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>Check the size of embeddings:</span>
-<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>tensor<span class="op">=</span>np.array(embeddings)</span>
-<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>tensor.shape</span>
-<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a>Since the embeddings are of very high dimensions, we will perform a simple dimension reduction technique. </span>
-<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="co"># For plotting</span></span>
-<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> offsetbox</span>
-<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
-<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(random_state <span class="op">=</span> <span class="dv">1</span>, n_components<span class="op">=</span><span class="dv">2</span>,verbose<span class="op">=</span><span class="dv">0</span>).fit_transform(tensor)</span>
-<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>tsne.shape</span>
-<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a>Next, we preprocess the data into a cleaner dataframe and apply HDBSCAN to this 2-dimensional data to obtain the cluster labels.</span>
-<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a>cluster <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">20</span>, prediction_data<span class="op">=</span><span class="va">True</span>).fit(tsne)</span>
-<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tweet"</span>: dataset[<span class="st">"text"</span>],</span>
-<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: dataset[<span class="st">"label_name"</span>],</span>
-<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cluster"</span>: cluster.labels_,</span>
-<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tsne_1"</span>: tsne[:, <span class="dv">0</span>],</span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tsne_2"</span>: tsne[:, <span class="dv">1</span>]</span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">"cluster"</span>] <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>] <span class="co">#remove outliers</span></span>
-<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">5</span>)</span>
-<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a>We can use ChatGPT to understand our clusters better by prompting ChatGPT to provide keywords and a short description for each cluster.</span>
-<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
-<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> OpenAI()</span>
-<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_summary(df, sample_size<span class="op">=</span><span class="dv">3</span>):</span>
-<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> []</span>
-<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(df[<span class="st">'cluster'</span>].unique()):</span>
-<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a>        sample <span class="op">=</span> df[df[<span class="st">'cluster'</span>]<span class="op">==</span>i].sample(sample_size, random_state<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span>sample[[<span class="st">"tweet"</span>]].to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span>
-<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">Asking the LLM for a summary for cluster indexed </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">. </span><span class="ch">\n</span><span class="ss">'</span>)</span>
-<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> <span class="ss">f"""You will be given a dataset with some tweets. You need to identify the category for those given tweets and shortly describe it. Tweets: </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">"""</span></span>
-<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Ground truth labels: "</span><span class="op">+</span> <span class="st">", "</span>.join(sample[<span class="st">"label"</span>].to_list()))</span>
-<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> client.chat.completions.create(</span>
-<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a>            model<span class="op">=</span><span class="st">"gpt-3.5-turbo"</span>,</span>
-<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a>            messages<span class="op">=</span>[</span>
-<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a>                {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: content}],</span>
-<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a>            temperature<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a>            max_tokens<span class="op">=</span><span class="dv">64</span>,</span>
-<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a>            top_p<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(response.choices[<span class="dv">0</span>].message.content)</span>
-<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a>        summary.append(response)</span>
-<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a>cluster_summary(df,<span class="dv">3</span>)</span>
-<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a>Finally, let's visualize our clusters to see how HDBSCAN works!</span>
-<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a>plt.scatter(df[<span class="st">"tsne_1"</span>], df[<span class="st">"tsne_2"</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df[<span class="st">"cluster"</span>])</span>
-<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
-<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>We can also visualize the clustering results without dimention reduction, let's see how that works!</span>
-<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a>cluster <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">20</span>, prediction_data<span class="op">=</span><span class="va">True</span>).fit(embeddings)</span>
-<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tweet"</span>: dataset[<span class="st">"text"</span>],</span>
-<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: dataset[<span class="st">"label_name"</span>],</span>
-<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cluster"</span>: cluster.labels_,</span>
-<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne[:, <span class="dv">0</span>], tsne[:, <span class="dv">1</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df1[<span class="st">"cluster"</span>])</span>
-<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
-<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE (without dim-reduction)'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>Almost all data points are outliers, the clustering doesn't work well without dimention reduction. For more about outliers, please check my <span class="co">[</span><span class="ot">Anomaly/outlier detection</span><span class="co">]</span> blog!</span>
-<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ref</span></span>
-<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Intro-1</span><span class="co">](https://climbtheladder.com/clustering-interview-questions/)</span></span>
-<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Intro-2</span><span class="co">](https://www.mlstack.cafe/interview-questions/clustering)</span></span>
-<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Fuzzy-C</span><span class="co">](https://medium.com/geekculture/fuzzy-c-means-clustering-fcm-algorithm-in-machine-learning-c2e51e586fff)</span></span>
-<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">data</span><span class="co">](https://huggingface.co/datasets/cardiffnlp/tweet_topic_single)</span></span>
-<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">hdbscan explain</span><span class="co">](https://nbviewer.org/github/scikit-learn-contrib/hdbscan/blob/master/notebooks/How%20HDBSCAN%20Works.ipynb)</span></span>
+<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Clustering"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## :blue_heart: What is clustering?</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>Clustering is <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color: red;"</span><span class="kw">&gt;</span>unsupervised <span class="kw">&lt;/span&gt;</span> machine learning for not having a target variable or class label. Clustering takes unlabeled data as input and group them into several clusters based on certain similarities. They are many types of clustering methods, let's take a look at some examples: </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Partitioning Method**</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**K-Means Clustering**: The most popular partitioning method. It divides the dataset into K clusters by minimizing the sum of squared distances between data points and their respective cluster centroids. First, you need to select the number of clusters. The algorithm then iteratively improves the clusters by recalculating the centroid of each cluster and reassigning data points to the new clusters.</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Fuzzy Clustering**</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Fuzzy C-Means**: Similar to K-means but allows data points to belong to multiple clusters with varying degrees of membership. The algorithm depends on a parameter m which corresponds to the degree of fuzziness of the solution. Large values of m will blur the classes and all elements tend to belong to all clusters. </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="al">![Difference between hard clustering and soft clustering: Hard clustering means that each data point is assigned to a specific cluster, and soft clustering means that each data point is assigned a probability of belonging to each cluster. ](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*zKHCMnHzlLGrxgAWY8RDtw.png)</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Deep Learning-Based Methods**</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Self-Organizing Maps**: A self-organizing map consists of a set of neurons that are arranged in a rectangular or hexagonal grid. Each neuronal unit in the grid is associated with a numerical vector of fixed dimensionality. The learning process of a self-organizing map involves the adjustment of these vectors to provide a suitable representation of the input data. Neural networks that produce a low-dimensional (typically two-dimensional) representation of the training data, preserving topological properties. Self-organizing maps can be used for clustering numerical data in vector format.</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Hierarchical Methods**</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>Partitioning clustering is a method of clustering data points into a set number of groups, while hierarchical clustering is a method of creating a hierarchy of clusters, with each cluster containing a subset of the data points. Partitioning clustering is typically faster than hierarchical clustering, but hierarchical clustering can produce more accurate results.</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Agglomerative**: A bottom-up approach where each data point starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Divisive**: A top-down approach starting with all points in one cluster and recursively splitting them into smaller clusters.</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Density-Based Methods**</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Mean Shift**: A sliding-window-based method that tries to find dense areas by updating candidates for centroids to be the mean of the points within a given region. </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>We can understand this algorithm by thinking of our data points to be represented as a probability density function. Naturally, in a probability function, higher density regions will correspond to the regions with more points, and lower density regions will correspond to the regions with less points. In clustering, we need to find clusters of points, i.e the regions with a lot of points together. More points together mean higher density. Hence, we observe that clusters of points are more like the higher density regions in our probability density function. So, we must iteratively go from lower density to higher density regions, in order to find our clusters.</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="al">![Different clustering algorithms on different shapes of data](https://scikit-learn.org/stable/_images/sphx_glr_plot_cluster_comparison_001.png)</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## :purple_heart: Common tasks and real-world examples</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>Clustering can be used for a variety of tasks, such as</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Recommendation systems**: Recommendation systems group similar items together and discover underlying connections without pre-defined categories. It recommends similar content and identifies customer segments for marketing purposes.</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Search engines**: Search engines try to group related objects together in a cluster and place different things far apart. It produces search results for the desired data based on the closest comparable items which are grouped around the desired search standards.  </span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Topic modeling**: Topic modeling is a method used in text mining to discover abstract topics within a collection of text crops. Perform clustering on the reduced text feature space to get groups of text crops, and each cluster can be interpreted as a topic.</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## :heart: HDBSCAN </span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>HDBSCAN stands for Hierarchical Density-Based Spatial Clustering of Applications with Noise, which is a a density based (hierarchical) clustering algorithm. HDBSCAN is a versatile clustering algorithm that can handle complex real-world data sets with varying densities and noise. Therefore it's used in a wide range of domains, especially for high-dimensional data such as image clustering, anomaly detection, and topic modeling, for the ability to handle different data sizes and shapes and pre-select the number of clusters.</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hdbscan</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.llms <span class="im">import</span> OpenAI</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.embeddings.openai <span class="im">import</span> OpenAIEmbeddings</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> LLMChain</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_summary(df, sample_size<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a><span class="co">    use gpt-3.5-turbo to create summary of each cluster</span></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"""You will be given a dataset with different tweets. You need to identify the category for those tweets and use a few words to describe them. Tweets: </span><span class="sc">{s}</span><span class="st">"""</span></span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>    llm<span class="op">=</span>ChatOpenAI(temperature<span class="op">=</span><span class="dv">0</span>, model_name<span class="op">=</span><span class="st">"gpt-3.5-turbo"</span>)</span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> []</span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">=</span> PromptTemplate(template<span class="op">=</span>template, input_variables<span class="op">=</span>[<span class="st">"s"</span>])</span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(df[<span class="st">'cluster'</span>].unique()):</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>        sample <span class="op">=</span> df[df[<span class="st">'cluster'</span>]<span class="op">==</span>i].sample(sample_size)</span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span>sample[[<span class="st">"tweet"</span>]].to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">Asking the LLM for a summary for cluster indexed </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">. </span><span class="ch">\n</span><span class="ss">'</span>)</span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>        llm_chain <span class="op">=</span> LLMChain(prompt<span class="op">=</span>prompt, llm<span class="op">=</span>llm)</span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>        gen<span class="op">=</span>llm_chain.run(s)</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(gen)</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>        summary.append(gen)</span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> summary</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>In the following parts, I will share an example of using HDBSCAN for topic modeling. First, let's retrieve some Twitter post data from Huggingface and use OpenAI to obtain the embeddings for clustering. </span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">"cardiffnlp/tweet_topic_single"</span>, split<span class="op">=</span><span class="st">"train_2021"</span>)</span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> OpenAIEmbeddings(chunk_size<span class="op">=</span><span class="dv">1000</span>).embed_documents(dataset[<span class="st">"text"</span>])</span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>Check the size of embeddings:</span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>tensor<span class="op">=</span>np.array(embeddings)</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>tensor.shape</span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a>Since the embeddings are of very high dimensions, we will perform a simple dimension reduction technique. </span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a><span class="co"># For plotting</span></span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> offsetbox</span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(random_state <span class="op">=</span> <span class="dv">1</span>, n_components<span class="op">=</span><span class="dv">2</span>,verbose<span class="op">=</span><span class="dv">0</span>).fit_transform(tensor)</span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a>tsne.shape</span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a>Next, we preprocess the data into a cleaner dataframe and apply HDBSCAN to this 2-dimensional data to obtain the cluster labels.</span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a>cluster <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">20</span>, prediction_data<span class="op">=</span><span class="va">True</span>).fit(tsne)</span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tweet"</span>: dataset[<span class="st">"text"</span>],</span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: dataset[<span class="st">"label_name"</span>],</span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cluster"</span>: cluster.labels_,</span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tsne_1"</span>: tsne[:, <span class="dv">0</span>],</span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tsne_2"</span>: tsne[:, <span class="dv">1</span>]</span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">"cluster"</span>] <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>] <span class="co">#remove outliers</span></span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">5</span>)</span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a>We can use ChatGPT to understand our clusters better by prompting ChatGPT to provide keywords and a short description for each cluster.</span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> OpenAI()</span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cluster_summary(df, sample_size<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> []</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm(df[<span class="st">'cluster'</span>].unique()):</span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a>        sample <span class="op">=</span> df[df[<span class="st">'cluster'</span>]<span class="op">==</span>i].sample(sample_size, random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span>sample[[<span class="st">"tweet"</span>]].to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">Asking the LLM for a summary for cluster indexed </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">. </span><span class="ch">\n</span><span class="ss">'</span>)</span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> <span class="ss">f"""You will be given a dataset with some tweets. You need to identify the category for those given tweets and shortly describe it. Tweets: </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">"""</span></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Ground truth labels: "</span><span class="op">+</span> <span class="st">", "</span>.join(sample[<span class="st">"label"</span>].to_list()))</span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> client.chat.completions.create(</span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a>            model<span class="op">=</span><span class="st">"gpt-3.5-turbo"</span>,</span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a>            messages<span class="op">=</span>[</span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a>                {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: content}],</span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>            temperature<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a>            max_tokens<span class="op">=</span><span class="dv">64</span>,</span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a>            top_p<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(response.choices[<span class="dv">0</span>].message.content)</span>
+<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a>        summary.append(response)</span>
+<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a>cluster_summary(df,<span class="dv">3</span>)</span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a>Finally, let's visualize our clusters to see how HDBSCAN works!</span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a>plt.scatter(df[<span class="st">"tsne_1"</span>], df[<span class="st">"tsne_2"</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df[<span class="st">"cluster"</span>])</span>
+<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a>We can also visualize the clustering results without dimention reduction, let's see how that works!</span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a>cluster <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">20</span>, prediction_data<span class="op">=</span><span class="va">True</span>).fit(embeddings)</span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tweet"</span>: dataset[<span class="st">"text"</span>],</span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: dataset[<span class="st">"label_name"</span>],</span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cluster"</span>: cluster.labels_,</span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne[:, <span class="dv">0</span>], tsne[:, <span class="dv">1</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df1[<span class="st">"cluster"</span>])</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE (without dim-reduction)'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a>Almost all data points are outliers, the clustering doesn't work well without dimention reduction. For more about outliers, please check my <span class="co">[</span><span class="ot">Anomaly/outlier detection</span><span class="co">](https://hwz531.github.io/blog/posts/outl.html#outliers-from-hdbscan)</span> blog!</span>
+<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ref</span></span>
+<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Intro-1</span><span class="co">](https://climbtheladder.com/clustering-interview-questions/)</span></span>
+<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Intro-2</span><span class="co">](https://www.mlstack.cafe/interview-questions/clustering)</span></span>
+<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Fuzzy-C</span><span class="co">](https://medium.com/geekculture/fuzzy-c-means-clustering-fcm-algorithm-in-machine-learning-c2e51e586fff)</span></span>
+<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">data</span><span class="co">](https://huggingface.co/datasets/cardiffnlp/tweet_topic_single)</span></span>
+<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">hdbscan explain</span><span class="co">](https://nbviewer.org/github/scikit-learn-contrib/hdbscan/blob/master/notebooks/How%20HDBSCAN%20Works.ipynb)</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
