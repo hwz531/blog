@@ -143,9 +143,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#what-are-anomaly-and-outlier" id="toc-what-are-anomaly-and-outlier" class="nav-link active" data-scroll-target="#what-are-anomaly-and-outlier"><span class="emoji" data-emoji="blue_heart">💙</span> What are anomaly and outlier?</a></li>
-  <li><a href="#anomaly-detection-in-computer-vision" id="toc-anomaly-detection-in-computer-vision" class="nav-link" data-scroll-target="#anomaly-detection-in-computer-vision"><span class="emoji" data-emoji="purple_heart">💜</span> Anomaly detection in computer vision</a>
+  <li><a href="#anomaly-detection-in-computer-vision" id="toc-anomaly-detection-in-computer-vision" class="nav-link" data-scroll-target="#anomaly-detection-in-computer-vision"><span class="emoji" data-emoji="purple_heart">💜</span> Anomaly detection in computer vision</a></li>
+  <li><a href="#outliers-from-hdbscan" id="toc-outliers-from-hdbscan" class="nav-link" data-scroll-target="#outliers-from-hdbscan"><span class="emoji" data-emoji="heart">❤️</span> Outliers from HDBSCAN</a>
   <ul class="collapse">
-  <li><a href="#autoencoders-neural-networks-designed-to-compress-and-then-reconstruct-input-data-often-used-to-detect-anomalies-by-comparing-the-reconstruction-error." id="toc-autoencoders-neural-networks-designed-to-compress-and-then-reconstruct-input-data-often-used-to-detect-anomalies-by-comparing-the-reconstruction-error." class="nav-link" data-scroll-target="#autoencoders-neural-networks-designed-to-compress-and-then-reconstruct-input-data-often-used-to-detect-anomalies-by-comparing-the-reconstruction-error.">Autoencoders: Neural networks designed to compress and then reconstruct input data, often used to detect anomalies by comparing the reconstruction error.</a></li>
+  <li><a href="#ref" id="toc-ref" class="nav-link" data-scroll-target="#ref">Ref</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hwz531/blog/blob/main/posts/outl.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -175,8 +176,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Anomalies are defined as events that deviate from the standard; they occur rarely and do not follow the established pattern.</p>
 <p>In machine learning, anomaly detection, also known as outlier detection, is the identification of rare data points which raise suspicions by differing significantly from the majority of the data. Anomalies can be indicative of issues such as bank fraud, structural defects, medical problems, or errors in a text.</p>
 <p><strong>Examples of anomalies include</strong>:</p>
-<p>Large dips and spikes in the stock market due to world events Defective items in a factory/on a conveyor belt Contaminated samples in a lab</p>
-<p>Identifying unusual patterns that might indicate fraudulent activity Detecting anomalies in patient data that could indicate medical issues</p>
+<ul>
+<li>real-word anomalies:</li>
+</ul>
+<p>Large dips and spikes in the stock market due to world events</p>
+<p>Defective items in a factory/on a conveyor belt</p>
+<p>Contaminated samples in a lab</p>
+<ul>
+<li>machine learning applications:</li>
+</ul>
+<p>Identifying unusual patterns that might indicate fraudulent activity</p>
+<p>Detecting anomalies in patient data that could indicate medical issues</p>
 <p><strong>Unsupervised vs Supervised Detection</strong>:</p>
 <ul>
 <li><p>Unsupervised Detection: Most common in anomaly detection. Techniques include autoencoders and clustering algorithms, for scenario when the nature of anomalies is not known a priori.</p></li>
@@ -188,6 +198,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="anomaly-detection-in-computer-vision"><span class="emoji" data-emoji="purple_heart">💜</span> Anomaly detection in computer vision</h2>
 <p>Anomaly detection in computer vision focuses on identifying abnormal patterns or objects in visual data that do not conform to expected norms.</p>
 <p><img src="https://media.wired.com/photos/593231525c4fbd732b551239/master/w_1600,c_limit/cat_captcha.png" class="img-fluid" style="width:50.0%"></p>
+<p><strong>Isolation Forest</strong> is a type of ensemble algorithm and consist of multiple decision trees used to partition the input dataset into distinct groups of inliers. It is good for high-dimensional data like image data and is based on the principle that anomalies data points that are “isolated” in the sense that they are rare and different in terms of pixel values.</p>
+<p>Let’s try if a human is better at distinguish cats than a “robot” using the Isolation Forest. Anomalies will be those points that have a shorter average path length in the trees of the forest.</p>
+<p>We load the cats_vs_dogs dataset to start.</p>
 <div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
@@ -201,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">'Bingsu/Cat_and_Dog'</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Preprocess the dataset to get</p>
+<p>Preprocess the dataset to get a majority of dogs and a few of cats as anomalies.</p>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
@@ -213,6 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.shuffle(seed<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>We also preprocess the images to get array representations of pixels for fitting the model.</p>
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
@@ -226,6 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> np.array([preprocess_image(item[<span class="st">'image'</span>]) <span class="cf">for</span> item <span class="kw">in</span> data])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>Apply Isolation Forest to the dogs dataset and plot out some anomalies to see if they are cats!</p>
 <div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
@@ -249,8 +264,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="outl_files/figure-html/cell-5-output-1.png" width="1135" height="232"></p>
 </div>
 </div>
-<section id="autoencoders-neural-networks-designed-to-compress-and-then-reconstruct-input-data-often-used-to-detect-anomalies-by-comparing-the-reconstruction-error." class="level3">
-<h3 class="anchored" data-anchor-id="autoencoders-neural-networks-designed-to-compress-and-then-reconstruct-input-data-often-used-to-detect-anomalies-by-comparing-the-reconstruction-error.">Autoencoders: Neural networks designed to compress and then reconstruct input data, often used to detect anomalies by comparing the reconstruction error.</h3>
+<p>We can see the detection is not very good, the model seems to only capture the black and white color as the anomalies, which might not always hold true for all types of anomalies in image data.</p>
+<p>Thus, we could try some more complex models such as Autoencoders, which use neural networks designed to compress and then reconstruct input data, often used to detect anomalies by comparing the reconstruction error.</p>
+</section>
+<section id="outliers-from-hdbscan" class="level2">
+<h2 class="anchored" data-anchor-id="outliers-from-hdbscan"><span class="emoji" data-emoji="heart">❤️</span> Outliers from HDBSCAN</h2>
+<p>We looked at twitter topic modeling with HDBSCAN clustering in the <a href="https://hwz531.github.io/blog/posts/clus.html#hdbscan">Clustering</a> blog Finally, let’s visualize our clusters to see how HDBSCAN works!</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.embeddings.openai <span class="im">import</span> OpenAIEmbeddings</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hdbscan</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># For plotting</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> offsetbox</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">"cardiffnlp/tweet_topic_single"</span>, split<span class="op">=</span><span class="st">"train_2021"</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> OpenAIEmbeddings(chunk_size<span class="op">=</span><span class="dv">1000</span>).embed_documents(dataset[<span class="st">"text"</span>])</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>tensor<span class="op">=</span>np.array(embeddings)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(random_state <span class="op">=</span> <span class="dv">1</span>, n_components<span class="op">=</span><span class="dv">2</span>,verbose<span class="op">=</span><span class="dv">0</span>).fit_transform(tensor)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>cluster <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">20</span>, prediction_data<span class="op">=</span><span class="va">True</span>).fit(tsne)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tweet"</span>: dataset[<span class="st">"text"</span>],</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: dataset[<span class="st">"label_name"</span>],</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cluster"</span>: cluster.labels_,</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne[:, <span class="dv">0</span>], tsne[:, <span class="dv">1</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df[<span class="st">"cluster"</span>])</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="outl_files/figure-html/cell-6-output-1.png" width="547" height="440"></p>
+</div>
+</div>
+<section id="ref" class="level3">
+<h3 class="anchored" data-anchor-id="ref">Ref</h3>
+<p><a href="https://pyimagesearch.com/2020/01/20/intro-to-anomaly-detection-with-opencv-computer-vision-and-scikit-learn/">Isolation-forest</a> <a href="https://plotly.com/python/figure-labels/">ploty</a> <a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">roc</a></p>
 
 
 <!-- -->
@@ -660,96 +724,154 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://utteranc.es/client.js" repo="hwz531/blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Anomaly/outlier detection"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## :blue_heart: What are anomaly and outlier?</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Anomalies are defined as events that deviate from the standard; they occur rarely and do not follow the established pattern. </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>In machine learning, anomaly detection, also known as outlier detection, is the identification of rare data points which raise suspicions by differing significantly from the majority of the data. Anomalies can be indicative of issues such as bank fraud, structural defects, medical problems, or errors in a text.</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>**Examples of anomalies include**:</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>Large dips and spikes in the stock market due to world events</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Defective items in a factory/on a conveyor belt</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>Contaminated samples in a lab</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>Identifying unusual patterns that might indicate fraudulent activity</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>Detecting anomalies in patient data that could indicate medical issues</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>**Unsupervised vs Supervised Detection**:</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Unsupervised Detection: Most common in anomaly detection. Techniques include autoencoders and clustering algorithms, for scenario when the nature of anomalies is not known a priori. </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Supervised Detection: Classification models can be trained to detect anomalies with labeled data. It's is not a recommended for real-world data is more noisy and human can miss some aspects of data when labeling it. </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Semi-supervised Learning: Involves training on a large amount of unlabeled data and a small amount of labeled data.</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## :purple_heart: Anomaly detection in computer vision</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>Anomaly detection in computer vision focuses on identifying abnormal patterns or objects in visual data that do not conform to expected norms. </span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://media.wired.com/photos/593231525c4fbd732b551239/master/w_1600,c_limit/cat_captcha.png)</span>{width=50%}</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> IsolationForest</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">'Bingsu/Cat_and_Dog'</span>)  </span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>Preprocess the dataset to get </span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> concatenate_datasets</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> dataset[<span class="st">'train'</span>]</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>cats <span class="op">=</span> data.<span class="bu">filter</span>(<span class="kw">lambda</span> x: x[<span class="st">'labels'</span>]<span class="op">==</span><span class="dv">0</span>)</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>dogs <span class="op">=</span> data.<span class="bu">filter</span>(<span class="kw">lambda</span> x: x[<span class="st">'labels'</span>]<span class="op">==</span><span class="dv">1</span>)</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> concatenate_datasets([cats.shuffle(seed<span class="op">=</span><span class="dv">1</span>).select(<span class="bu">range</span>(<span class="dv">100</span>)), dogs.shuffle(seed<span class="op">=</span><span class="dv">0</span>).select(<span class="bu">range</span>(<span class="dv">900</span>))])</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.shuffle(seed<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_image(image):</span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert the input image to grayscale</span></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    <span class="co">#image = image.convert('L')</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> image.resize((<span class="dv">64</span>, <span class="dv">64</span>))  <span class="co"># Resize to 64x64</span></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(image).flatten()  <span class="co"># Flatten the image</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess the images</span></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> np.array([preprocess_image(item[<span class="st">'image'</span>]) <span class="cf">for</span> item <span class="kw">in</span> data])</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying Isolation Forest</span></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>iso_forest <span class="op">=</span> IsolationForest(n_estimators<span class="op">=</span><span class="dv">100</span>, contamination<span class="op">=</span><span class="fl">0.1</span>)  <span class="co"># contamination is an estimate of the proportion of outliers</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>anomalies <span class="op">=</span> iso_forest.fit_predict(images)</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifying the indices of anomalies</span></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>anomaly_indices <span class="op">=</span> np.where(anomalies <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>)[<span class="dv">0</span>]</span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot some of the detected anomalies</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">3</span>))</span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, idx <span class="kw">in</span> <span class="bu">enumerate</span>(anomaly_indices[:<span class="dv">5</span>]):</span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    axs[i].imshow(images[idx].reshape(<span class="dv">64</span>, <span class="dv">64</span>,<span class="dv">3</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    axs[i].axis(<span class="st">'off'</span>)</span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    axs[i].set_title(<span class="ss">f'Anomaly </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="fu">### Autoencoders: Neural networks designed to compress and then reconstruct input data, often used to detect anomalies by comparing the reconstruction error.</span></span>
+<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Anomaly/outlier detection"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## :blue_heart: What are anomaly and outlier?</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Anomalies are defined as events that deviate from the standard; they occur rarely and do not follow the established pattern. </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>In machine learning, anomaly detection, also known as outlier detection, is the identification of rare data points which raise suspicions by differing significantly from the majority of the data. Anomalies can be indicative of issues such as bank fraud, structural defects, medical problems, or errors in a text.</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>**Examples of anomalies include**:</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>real-word anomalies: </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>Large dips and spikes in the stock market due to world events</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>Defective items in a factory/on a conveyor belt</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>Contaminated samples in a lab</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>machine learning applications: </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>Identifying unusual patterns that might indicate fraudulent activity</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>Detecting anomalies in patient data that could indicate medical issues</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>**Unsupervised vs Supervised Detection**:</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Unsupervised Detection: Most common in anomaly detection. Techniques include autoencoders and clustering algorithms, for scenario when the nature of anomalies is not known a priori. </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Supervised Detection: Classification models can be trained to detect anomalies with labeled data. It's is not a recommended for real-world data is more noisy and human can miss some aspects of data when labeling it. </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Semi-supervised Learning: Involves training on a large amount of unlabeled data and a small amount of labeled data.</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## :purple_heart: Anomaly detection in computer vision</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>Anomaly detection in computer vision focuses on identifying abnormal patterns or objects in visual data that do not conform to expected norms. </span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://media.wired.com/photos/593231525c4fbd732b551239/master/w_1600,c_limit/cat_captcha.png)</span>{width=50%}</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>**Isolation Forest** is a type of ensemble algorithm and consist of multiple decision trees used to partition the input dataset into distinct groups of inliers. It is good for high-dimensional data like image data and is based on the principle that anomalies data points that are "isolated" in the sense that they are rare and different in terms of pixel values. </span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>Let's try if a human is better at distinguish cats than a "robot" using the Isolation Forest. Anomalies will be those points that have a shorter average path length in the trees of the forest. </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>We load the cats_vs_dogs dataset to start. </span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> IsolationForest</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">'Bingsu/Cat_and_Dog'</span>)  </span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>Preprocess the dataset to get a majority of dogs and a few of cats as anomalies. </span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> concatenate_datasets</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> dataset[<span class="st">'train'</span>]</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>cats <span class="op">=</span> data.<span class="bu">filter</span>(<span class="kw">lambda</span> x: x[<span class="st">'labels'</span>]<span class="op">==</span><span class="dv">0</span>)</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>dogs <span class="op">=</span> data.<span class="bu">filter</span>(<span class="kw">lambda</span> x: x[<span class="st">'labels'</span>]<span class="op">==</span><span class="dv">1</span>)</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> concatenate_datasets([cats.shuffle(seed<span class="op">=</span><span class="dv">1</span>).select(<span class="bu">range</span>(<span class="dv">100</span>)), dogs.shuffle(seed<span class="op">=</span><span class="dv">0</span>).select(<span class="bu">range</span>(<span class="dv">900</span>))])</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.shuffle(seed<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>We also preprocess the images to get array representations of pixels for fitting the model. </span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_image(image):</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert the input image to grayscale</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    <span class="co">#image = image.convert('L')</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> image.resize((<span class="dv">64</span>, <span class="dv">64</span>))  <span class="co"># Resize to 64x64</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(image).flatten()  <span class="co"># Flatten the image</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess the images</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> np.array([preprocess_image(item[<span class="st">'image'</span>]) <span class="cf">for</span> item <span class="kw">in</span> data])</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>Apply Isolation Forest to the dogs dataset and plot out some anomalies to see if they are cats!</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying Isolation Forest</span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>iso_forest <span class="op">=</span> IsolationForest(n_estimators<span class="op">=</span><span class="dv">100</span>, contamination<span class="op">=</span><span class="fl">0.1</span>)  <span class="co"># contamination is an estimate of the proportion of outliers</span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>anomalies <span class="op">=</span> iso_forest.fit_predict(images)</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifying the indices of anomalies</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>anomaly_indices <span class="op">=</span> np.where(anomalies <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot some of the detected anomalies</span></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">3</span>))</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, idx <span class="kw">in</span> <span class="bu">enumerate</span>(anomaly_indices[:<span class="dv">4</span>]):</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>    axs[i].imshow(images[idx].reshape(<span class="dv">64</span>, <span class="dv">64</span>,<span class="dv">3</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>    axs[i].axis(<span class="st">'off'</span>)</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>    axs[i].set_title(<span class="ss">f'Anomaly </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>We can see the detection is not very good, the model seems to only capture the black and white color as the anomalies, which might not always hold true for all types of anomalies in image data.</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>Thus, we could try some more complex models such as Autoencoders, which use neural networks designed to compress and then reconstruct input data, often used to detect anomalies by comparing the reconstruction error.</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## :heart: Outliers from HDBSCAN</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>We looked at twitter topic modeling with HDBSCAN clustering in the <span class="co">[</span><span class="ot">Clustering</span><span class="co">](https://hwz531.github.io/blog/posts/clus.html#hdbscan)</span> blog </span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>Finally, let's visualize our clusters to see how HDBSCAN works!</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.embeddings.openai <span class="im">import</span> OpenAIEmbeddings</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hdbscan</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="co"># For plotting</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> offsetbox</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">"cardiffnlp/tweet_topic_single"</span>, split<span class="op">=</span><span class="st">"train_2021"</span>)</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> OpenAIEmbeddings(chunk_size<span class="op">=</span><span class="dv">1000</span>).embed_documents(dataset[<span class="st">"text"</span>])</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>tensor<span class="op">=</span>np.array(embeddings)</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> TSNE(random_state <span class="op">=</span> <span class="dv">1</span>, n_components<span class="op">=</span><span class="dv">2</span>,verbose<span class="op">=</span><span class="dv">0</span>).fit_transform(tensor)</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>cluster <span class="op">=</span> hdbscan.HDBSCAN(min_cluster_size<span class="op">=</span><span class="dv">20</span>, prediction_data<span class="op">=</span><span class="va">True</span>).fit(tsne)</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tweet"</span>: dataset[<span class="st">"text"</span>],</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>    <span class="st">"label"</span>: dataset[<span class="st">"label_name"</span>],</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cluster"</span>: cluster.labels_,</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne[:, <span class="dv">0</span>], tsne[:, <span class="dv">1</span>],s<span class="op">=</span><span class="dv">5</span>, c<span class="op">=</span>df[<span class="st">"cluster"</span>])</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweets topic t-SNE'</span>, fontsize<span class="op">=</span><span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ref</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Isolation-forest</span><span class="co">](https://pyimagesearch.com/2020/01/20/intro-to-anomaly-detection-with-opencv-computer-vision-and-scikit-learn/)</span></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">ploty</span><span class="co">](https://plotly.com/python/figure-labels/)</span></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">roc</span><span class="co">](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
