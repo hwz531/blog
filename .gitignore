@@ -3,4 +3,4 @@
 /_site/
 /.luarc.json/
 /_environment/
-/.env
+/posts/.env

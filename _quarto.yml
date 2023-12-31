@@ -2,20 +2,50 @@ project:
   type: website
 
 website:
-  title: "blog"
+  title: "Home"
   navbar:
+    search: true
     left:
-      - href: index.qmd
-        text: Home
+      - href: blog.qmd
+        text: Blog
+      - href: notes.qmd
+        text: Note
       - about.qmd
   repo-url: https://github.com/hwz531/blog
   repo-actions: [source]
+  page-navigation: true
+  sidebar:
+    - title: "Blog"
+      style: "docked"
+      contents:
+        - section: "Blogs"
+          contents:
+            - href: posts/prob.qmd
+              text: Probability
+            - href: posts/clus.qmd
+              text: Clustering
+            - href: posts/clas.qmd
+              text: Classification
+            - href: posts/line.qmd
+              text: Regression
+            - href: posts/outl.qmd
+              text: Anomaly detection    
+    - title: "Note"
+      contents:
+        - section: "Notes"
+          contents:
+            - href: notes/op_ai.qmd
+              text: Open Source AI
+
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: minty
+      dark: vapor
     css: styles.css
     toc: true
+
 
 
 

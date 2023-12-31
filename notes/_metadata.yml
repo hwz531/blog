@@ -1,0 +1,10 @@
+from: markdown+emoji
+freeze: true
+format:
+  html:
+    code-tools: true
+    code-fold: true
+    code-summary: "Show the code"
+comments: 
+  utterances: 
+    repo:  hwz531/blog

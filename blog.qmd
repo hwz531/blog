@@ -1,0 +1,8 @@
+---
+title: "Machine learning blogs"
+listing:
+  type: grid
+  contents: posts
+page-layout: full
+title-block-banner: false
+---

@@ -1,0 +1,8 @@
+---
+title: "Notes"
+listing:
+  type: grid
+  contents: notes
+page-layout: full
+title-block-banner: false
+---

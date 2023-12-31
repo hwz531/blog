@@ -1,5 +1,42 @@
 ---
-title: "About"
+title: "About me"
+about:
+  id: hero-heading
+  template: jolla
+  links:
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/zoe-zheng-1008581b5/
 ---
 
-About this site
+:::{#hero-heading}
+
+#### zoez@vt.edu 
+
+## Education
+
+Virginia Tech | Blacksburg, VA 
+
+Aug 2022 -  May 2024
+
+* M.S. in Computer Science 
+* Graduate Certificate in Urban Computing 
+
+Sept 2007 - June 2011
+
+* B.S. in Computer Science 
+* B.S. in Computational Modeling and Data Analytics 
+* Minors in Mathematics 
+
+**Technical skills**: Git, Java, Python, C, C++, R, MATLAB, TensorFlow, PyTorch, Tableau, AWS, SQL, JavaScript
+
+## Experience
+
+Teaching Assistant at Virginia Tech | Jan 2022 -
+
+* **CS3604: Professionalism in Computing**: Assisted in helping students identify and develop ethics and technology case studies, effectively communicating with students from varied backgrounds. 
+
+* **CS/STS 4984: Algorithms and Society**: Assisted in grading weekly discussions, unit essays, and studios. 
+
+
+:::

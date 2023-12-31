@@ -1,13 +1,20 @@
 ---
-title: "CS 5805 Final Project"
+title: "Home"
+image: pweb.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/zoe-zheng-1008581b5/
+title-block-banner: false
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Hello and welcome to my page! I’m Zoe Zheng, a graduate student with a deep-seated passion for AI and ML in Virginia Tech. Armed with dual bachelor's degrees in Computer Science and Computational Modeling and Data Analytics, I'm currently advancing my expertise through a Master's in Computer Science, focusing on NLP and multimodal learning. I enjoy solving real-world problems and am very much a team player. My team has won first place consecutively in Virginia Tech's annual Data Fest and placed in the top 21%, receiving an honorable mention, at the Mathematical Contest in Modeling (MCM).  My research experience includes multidisciplinary LLM pertaining, few-shot in-context prompt learning, and comprehensive information extraction from both text and image documents.
 
-# Blog 1 [Probability theory and random variables](prob.qmd)
-# Blog 2 [Clustering](clus.qmd)
-# Blog 3 [Linear and non-linear regression](line.qmd)
-# Blog 4 [Classification](clas.qmd)
-# Blog 5 [Anomaly/outlier detection](outl.qmd)
+**This website is my digital space – a place where I want to display somewhat professionalism and creativity. Here, you'll find some machine learning blogs, my CV, notes and some thoughts.**
+
+
+
+

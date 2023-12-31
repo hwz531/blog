@@ -7,3 +7,7 @@ python-dotenv
 tiktoken
 matplotlib
 seaborn
+scikit-plot
+plotly
+torch
+torchvision
