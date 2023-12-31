@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Home - Open Source AI: To Release or Not To Release Large AI Models?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Home</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html" rel="" target="">
+ <span class="menu-text">Note</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">About me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/op_ai.html">Notes</a></li><li class="breadcrumb-item"><a href="../notes/op_ai.html">Open Source AI</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/op_ai.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Open Source AI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="emoji" data-emoji="blue_heart">💙</span></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="emoji" data-emoji="purple_heart">💜</span></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="emoji" data-emoji="heart">❤️</span></a>
+  <ul class="collapse">
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hwz531/blog/blob/main/notes/op_ai.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Open Source AI: To Release or Not To Release Large AI Models?</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><span class="emoji" data-emoji="blue_heart">💙</span></h2>
+<p>In February 2019, OpenAI introduced GPT-2, a groundbreaking language model with multiple capabilities including reading comprehension, machine translation, and summarization. Due to concerns about potential misuse, OpenAI initially released only a smaller version of GPT-2. After analyzing the risks and observing no strong evidence of misuse, OpenAI gradually released larger models, culminating in the full GPT-2 release in November 2019. GPT-2 was trained as a large-scale unsupervised language model on 40 GBs of content scraped from the Internet with a Reddit karma score (calculated based on the user upvotes of the content) of over 3 (University, S.C., 2020). GPT-2 was trained on a large dataset with unsupervised styles, and its introduction started discussions on the balance between potential societal harms and benefits among researchers. The steps of AI development are rapid, large AI models have reaped the benefits of extensive data resources available on the Internet and the fast growth in computational power. Over time, increasingly powerful AI models, such as Chat-GPT, GPT-4, and DALL-E, are being introduced to the market. Nevertheless, various ethical issues associated with these large AI models are progressively coming to light.</p>
+<p>This article will delve into the ethical challenges associated with the publication of a large AI model, focusing on the potential risks and benefits it presents to society. I will examine the dilemma: “To Release or Not To Release” faced by AI developers and researchers in balancing openness and collaboration with the need to prevent the misuse of powerful language models.</p>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"><span class="emoji" data-emoji="purple_heart">💜</span></h2>
+<p>Open source refers to a development model in which the source code of a software or application is made freely available to the public. This allows developers, researchers, and users to access, modify, and distribute the codes without restrictions. Open-source software has gained popularity across various domains, including machine learning and AI. Open-source machine learning models are an extension of this concept, where pre-built algorithms and models are shared openly for everyone to use, adapt, and improve. By providing access to these models, developers can quickly implement machine learning models, reducing the time and resources needed for building models from scratch. Additionally, open-source machine learning models enable the public to try state-of-the-art AI and use it to develop their own applications.</p>
+<p>Initially, OpenAI expressed concerns regarding the potential use of large language models for generating misleading, biased, or harmful language on a massive scale. However, at the point when they fully released GPT-2, they stated that they have seen no strong evidence of misuse so far. As for GPT-3 and the following models, OpenAI followed their original promise about not releasing the model. For the full release of AI models, many stakeholders are involved. Firstly, the company that invented the model, like OpenAI, and then the people who intend to use it, like the competition companies, the research community, the companies’ paid and unpaid users, as well as the people who are “second-hand” influenced by the AI products. Even though they are not directly involved with using the AI models, they are involved in the applications which were directly generated by AI users.</p>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"><span class="emoji" data-emoji="heart">❤️</span></h2>
+<p>Around the year 2000, NLP progress was focused on shallow parsing, but now language models are capable of generating coherent and comprehensive text, even assisting humans in complex tasks. It’s difficult to imagine the incredible capabilities of future AI models. In a complete survey on generative ai (AIGC), the authors think generative AI is still in its early stage, and its future development may be divided into the following three directions (Zhang et al., 2023). First, AIGC tasks are trending towards having more flexible control. For example, while early GAN-based models could generate high-quality images, recent diffusion models enable control through text instructions. In the future, more fine-grained control is needed for more flexible image generation. Imagine an AI model that can generate images based on anything you want, and fits your expectation perfectly. Second, the authors believe that the focus of AIGC models will shift from pretraining to finetuning, in other words, researchers will study more on the downstream tasks and new tasks instead of studying the model structure. Third, along with the focus shifts from core technology development to applications, the authors think more startup companies, like OpenAI, are expected to emerge due to increasing demand.</p>
+<p>More and heavier ethical conflicts arise from future AI area development. The first direction shows the accessibility of more serious misuse of AI. Even for the GPT-3 API usages, the study found that extremists could effortlessly generate artificial text with minor modifications. Automation employment allows the quick spread of evil ideological and emotionally provocative content across online platforms, making it much more difficult for people to differentiate from human-created content. These synthetic forums could be employed to recruit new followers and increase the engagement of existing users (McGuffie &amp; Newhouse, 2020). So far it has been the risks of current AI models, more detailed and vivid texts and images are generated to attack certain individuals, races, and countries in the future might not just an imagination. The second point is related to our open-source discussion. Only providing an API connection to the pre-trained model allows the public to use it in many aspects and gives researchers plenty of downstream tasks to discover. That leads to the question of whether open source codes on AI models still benefit society and the research community more than they harm in the Utilitarianism lens.</p>
+<p>AI-generated models have demonstrated remarkable potential in various applications such as natural language processing, image generation, video synthesis, 3D content creation, and code development. Their usages across numerous industries like education, entertainment, marketing, and creative content production, ultimately lead to increased efficiency and innovation. However, do these benefits worth more than the ethical and societal challenges posed by these powerful tools? Utilitarianism considers the total impact of an action, as long as the company can manage risks while maximizing positive outcomes for the greatest number of people, open-sourced AI models seem more beneficial to society.</p>
+<p>The question: Should the Large AI model be open-sourced, can further become the debate of whether should people develop large AI models or should AI models be so powerful. Timnit Gebru is known for studying algorithmic bias fairness in machine learning and is the founder of Black in AI. She published a paper that discusses the potential risks and ethical concerns surrounding large-scale AI language models, such as data bias, environmental impact, and the concentration of power in the hands of a few tech companies. The paper emphasizes the need for more interdisciplinary research, transparency, and accountability in AI development. On one hand, open-source models allow people to examine potential risks. On the other hand, in order to study such large language models requires numerous computational power; the carbon footprint of training a large AI model roughly equals 10 cars’ lifelong emissions. Therefore, the paper argues that bigger language models might not always be better and that the AI research community should consider the potential negative impacts of such models on marginalized communities and society as a whole (Bender et al., 2021). Small open-sourced models sound like a good plan, but it doesn’t help much in deciding whether large AI models should be open-sourced.</p>
+<p>Interestingly enough, Google fired her right after she tried to publish this paper, which exactly matched her description of “the concentration of power in the hands of top tech companies” in this paper. Those high-tech companies are the biggest stakeholders in the publishing of large AI models, their evaluation is not based on the utilitarian perspective but only relates to their own advantages. “After hiring researchers like Dr.&nbsp;Gebru, Google has painted itself as a company dedicated to “ethical” A.I. But it is often reluctant to publicly acknowledge flaws in its own systems,” commented by the New York Times (Metz &amp; Wakabayashi, 2020). We won’t be able to know if the decision not to release large AI models of Open-AI is purely based on ethical concerns or company benefit. Chat-GPT surely is the most popular AI model, it’s understandable that the company wants to keep the money machine to itself, but it’s important that the company pay attention to the ethical issues and social impacts.</p>
+<p>In contrast, most of Google’s large language models are open-sourced. This is worth examining through the lens of fairness. The development of Open-AI builds upon all the previous open-sourced models. If all companies stop publishing their models, how can the AI research community progress? Open-AI researchers took advantage of other people’s open-source codes, but don’t give back to the community, is this a fair behavior? Powerful AI models depend heavily on pre-training, and withholding model code helps save training resources to some degree, therefore resulting in alleviating the unfairness in resources between big companies and individuals. Would it be considered an act of fairness?</p>
+<p>The ethical dilemma of the “To Release or Not To Release” puts us in a tricky situation where both positive and negative impacts of the release are complicated to compare with each other. Many other ethical lenses can also aid in analyzing the overall consequence on society. Follows the right not to be injured lens: no one would want to be harmed by AI models or their by-products, however, do we freely and knowingly choose to risk such injuries? Through the common good ethical lens, we know that sharing something good among the public benefits society and all, which is for the common good, then not sharing AI source which potentially damages society and creates chaos should also be considered for the common good.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="opai.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Generated by Dall-E</figcaption>
+</figure>
+</div>
+<p>In the absence of extensive training, funding, or scientific support, the potential for the development and deployment of extremist content using open-source large AI models is less threatening. Studies have shown that the provided API is sufficient to generate any kind of content since only the companies have enough resources to obtain state-of-the-art models. It is the AI companies’ responsibility to examine API usage and perform data and content control. The phony AI models trained for harmful use won’t be as harmful as fine-tuned API generation with the original model. The threats of future unrestricted access to large AI models should be more comprehensively described. Bottlenecks of the current AI models such as the AI-generated human figures don’t have hands or the image having a wired vibe showing the unrealness, which will easily be solved with time. The main focus of the company should be to ensure the responsible and beneficial utilization of AI-generated content in the future.</p>
+<section id="reference" class="level3">
+<h3 class="anchored" data-anchor-id="reference">Reference</h3>
+<p><a href="https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/open-source-ai-to-release-or-not-to-release-the-gpt-2-synthetic-text-generator/">(University, S. C. (n.d.). Open source ai: To release or not to release the gpt-2 synthetic text generator. Retrieved April 29, 2023</a></p>
+<p><a href="https://doi.org/10.48550/arXiv.2303.11717">Zhang, C., Zhang, C., Zheng, S., Qiao, Y., Li, C., Zhang, M., Dam, S. K., Thwal, C. M., Tun, Y. L., Huy, L. L., kim, D., Bae, S.-H., Lee, L.-H., Yang, Y., Shen, H. T., Kweon, I. S., &amp; Hong, C. S. (2023). A complete survey on generative ai (Aigc): Is chatgpt from gpt-4 to gpt-5 all you need? arXiv.</a></p>
+<p><a href="https://doi.org/10.1145/3442188.3445922">McGuffie, K., &amp; Newhouse, A. (2020). The radicalization risks of gpt-3 and advanced neural language models. Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency, 610–623.</a></p>
+<p><a href="https://www.nytimes.com/2020/12/03/technology/google-researcher-timnit-gebru.html">Metz, C., &amp; Wakabayashi, D. (2020, December 3). Google researcher says she was fired over paper highlighting bias in a. I. The New York Times.</a></p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="hwz531/blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Open Source AI: To Release or Not To Release Large AI Models?"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## :blue_heart: </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>In February 2019, OpenAI introduced GPT-2, a groundbreaking language model with multiple capabilities including reading comprehension, machine translation, and summarization. Due to concerns about potential misuse, OpenAI initially released only a smaller version of GPT-2. After analyzing the risks and observing no strong evidence of misuse, OpenAI gradually released larger models, culminating in the full GPT-2 release in November 2019. GPT-2 was trained as a large-scale unsupervised language model on 40 GBs of content scraped from the Internet with a Reddit karma score (calculated based on the user upvotes of the content) of over 3 (University, S.C., 2020). GPT-2 was trained on a large dataset with unsupervised styles, and its introduction started discussions on the balance between potential societal harms and benefits among researchers. The steps of AI development are rapid, large AI models have reaped the benefits of extensive data resources available on the Internet and the fast growth in computational power. Over time, increasingly powerful AI models, such as Chat-GPT, GPT-4, and DALL-E, are being introduced to the market. Nevertheless, various ethical issues associated with these large AI models are progressively coming to light. </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This article will delve into the ethical challenges associated with the publication of a large AI model, focusing on the potential risks and benefits it presents to society. I will examine the dilemma: “To Release or Not To Release” faced by AI developers and researchers in balancing openness and collaboration with the need to prevent the misuse of powerful language models. </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## :purple_heart: </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Open source refers to a development model in which the source code of a software or application is made freely available to the public. This allows developers, researchers, and users to access, modify, and distribute the codes without restrictions. Open-source software has gained popularity across various domains, including machine learning and AI. Open-source machine learning models are an extension of this concept, where pre-built algorithms and models are shared openly for everyone to use, adapt, and improve. By providing access to these models, developers can quickly implement machine learning models, reducing the time and resources needed for building models from scratch. Additionally, open-source machine learning models enable the public to try state-of-the-art AI and use it to develop their own applications. </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Initially, OpenAI expressed concerns regarding the potential use of large language models for generating misleading, biased, or harmful language on a massive scale. However, at the point when they fully released GPT-2, they stated that they have seen no strong evidence of misuse so far. As for GPT-3 and the following models, OpenAI followed their original promise about not releasing the model. For the full release of AI models, many stakeholders are involved. Firstly, the company that invented the model, like OpenAI, and then the people who intend to use it, like the competition companies, the research community, the companies’ paid and unpaid users, as well as the people who are “second-hand” influenced by the AI products. Even though they are not directly involved with using the AI models, they are involved in the applications which were directly generated by AI users. </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## :heart: </span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Around the year 2000, NLP progress was focused on shallow parsing, but now language models are capable of generating coherent and comprehensive text, even assisting humans in complex tasks. It's difficult to imagine the incredible capabilities of future AI models. In a complete survey on generative ai (AIGC), the authors think generative AI is still in its early stage, and its future development may be divided into the following three directions (Zhang et al., 2023). First, AIGC tasks are trending towards having more flexible control. For example, while early GAN-based models could generate high-quality images, recent diffusion models enable control through text instructions. In the future, more fine-grained control is needed for more flexible image generation. Imagine an AI model that can generate images based on anything you want, and fits your expectation perfectly. Second, the authors believe that the focus of AIGC models will shift from pretraining to finetuning, in other words, researchers will study more on the downstream tasks and new tasks instead of studying the model structure. Third, along with the focus shifts from core technology development to applications, the authors think more startup companies, like OpenAI, are expected to emerge due to increasing demand. </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>More and heavier ethical conflicts arise from future AI area development. The first direction shows the accessibility of more serious misuse of AI. Even for the GPT-3 API usages, the study found that extremists could effortlessly generate artificial text with minor modifications. Automation employment allows the quick spread of evil ideological and emotionally provocative content across online platforms, making it much more difficult for people to differentiate from human-created content. These synthetic forums could be employed to recruit new followers and increase the engagement of existing users (McGuffie &amp; Newhouse, 2020). So far it has been the risks of current AI models, more detailed and vivid texts and images are generated to attack certain individuals, races, and countries in the future might not just an imagination. The second point is related to our open-source discussion. Only providing an API connection to the pre-trained model allows the public to use it in many aspects and gives researchers plenty of downstream tasks to discover. That leads to the question of whether open source codes on AI models still benefit society and the research community more than they harm in the Utilitarianism lens. </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>AI-generated models have demonstrated remarkable potential in various applications such as natural language processing, image generation, video synthesis, 3D content creation, and code development. Their usages across numerous industries like education, entertainment, marketing, and creative content production, ultimately lead to increased efficiency and innovation. However, do these benefits worth more than the ethical and societal challenges posed by these powerful tools? Utilitarianism considers the total impact of an action, as long as the company can manage risks while maximizing positive outcomes for the greatest number of people, open-sourced AI models seem more beneficial to society. </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>The question: Should the Large AI model be open-sourced, can further become the debate of whether should people develop large AI models or should AI models be so powerful. Timnit Gebru is known for studying algorithmic bias fairness in machine learning and is the founder of Black in AI. She published a paper that discusses the potential risks and ethical concerns surrounding large-scale AI language models, such as data bias, environmental impact, and the concentration of power in the hands of a few tech companies. The paper emphasizes the need for more interdisciplinary research, transparency, and accountability in AI development. On one hand, open-source models allow people to examine potential risks. On the other hand, in order to study such large language models requires numerous computational power; the carbon footprint of training a large AI model roughly equals 10 cars' lifelong emissions. Therefore, the paper argues that bigger language models might not always be better and that the AI research community should consider the potential negative impacts of such models on marginalized communities and society as a whole (Bender et al., 2021). Small open-sourced models sound like a good plan, but it doesn’t help much in deciding whether large AI models should be open-sourced. </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Interestingly enough, Google fired her right after she tried to publish this paper, which exactly matched her description of “the concentration of power in the hands of top tech companies” in this paper. Those high-tech companies are the biggest stakeholders in the publishing of large AI models, their evaluation is not based on the utilitarian perspective but only relates to their own advantages. "After hiring researchers like Dr. Gebru, Google has painted itself as a company dedicated to “ethical” A.I. But it is often reluctant to publicly acknowledge flaws in its own systems,” commented by the New York Times (Metz &amp; Wakabayashi, 2020). We won’t be able to know if the decision not to release large AI models of Open-AI is purely based on ethical concerns or company benefit. Chat-GPT surely is the most popular AI model, it’s understandable that the company wants to keep the money machine to itself, but it's important that the company pay attention to the ethical issues and social impacts. </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>In contrast, most of Google's large language models are open-sourced. This is worth examining through the lens of fairness. The development of Open-AI builds upon all the previous open-sourced models. If all companies stop publishing their models, how can the AI research community progress? Open-AI researchers took advantage of other people’s open-source codes, but don’t give back to the community, is this a fair behavior? Powerful AI models depend heavily on pre-training, and withholding model code helps save training resources to some degree, therefore resulting in alleviating the unfairness in resources between big companies and individuals. Would it be considered an act of fairness? </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>The ethical dilemma of the “To Release or Not To Release”  puts us in a tricky situation where both positive and negative impacts of the release are complicated to compare with each other. Many other ethical lenses can also aid in analyzing the overall consequence on society. Follows the right not to be injured lens: no one would want to be harmed by AI models or their by-products, however, do we freely and knowingly choose to risk such injuries? Through the common good ethical lens, we know that sharing something good among the public benefits society and all, which is for the common good, then not sharing AI source which potentially damages society and creates chaos should also be considered for the common good. </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="al">![Generated by Dall-E](opai.png)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>In the absence of extensive training, funding, or scientific support, the potential for the development and deployment of extremist content using open-source large AI models is less threatening. Studies have shown that the provided API is sufficient to generate any kind of content since only the companies have enough resources to obtain state-of-the-art models. It is the AI companies’ responsibility to examine API usage and perform data and content control. The phony AI models trained for harmful use won't be as harmful as fine-tuned API generation with the original model. The threats of future unrestricted access to large AI models should be more comprehensively described. Bottlenecks of the current AI models such as the AI-generated human figures don’t have hands or the image having a wired vibe showing the unrealness, which will easily be solved with time. The main focus of the company should be to ensure the responsible and beneficial utilization of AI-generated content in the future.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reference</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">(University, S. C. (n.d.). Open source ai: To release or not to release the gpt-2 synthetic text generator. Retrieved April 29, 2023</span><span class="co">](https://www.scu.edu/ethics/focus-areas/technology-ethics/resources/open-source-ai-to-release-or-not-to-release-the-gpt-2-synthetic-text-generator/)</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Zhang, C., Zhang, C., Zheng, S., Qiao, Y., Li, C., Zhang, M., Dam, S. K., Thwal, C. M., Tun, Y. L., Huy, L. L., kim, D., Bae, S.-H., Lee, L.-H., Yang, Y., Shen, H. T., Kweon, I. S., &amp; Hong, C. S. (2023). A complete survey on generative ai (Aigc): Is chatgpt from gpt-4 to gpt-5 all you need? arXiv. </span><span class="co">](https://doi.org/10.48550/arXiv.2303.11717)</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>[McGuffie, K., &amp; Newhouse, A. (2020). The radicalization risks of gpt-3 and advanced neural language models.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency, 610–623.](https://doi.org/10.1145/3442188.3445922 )</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Metz, C., &amp; Wakabayashi, D. (2020, December 3). Google researcher says she was fired over paper highlighting bias in a. I. The New York Times.</span><span class="co">](https://www.nytimes.com/2020/12/03/technology/google-researcher-timnit-gebru.html )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,12 +1,18 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/blog.html",
     "items": [
       "/posts/outl.html",
       "/posts/clas.html",
       "/posts/clus.html",
       "/posts/line.html",
       "/posts/prob.html"
+    ]
+  },
+  {
+    "listing": "/notes.html",
+    "items": [
+      "/notes/op_ai.html"
     ]
   }
 ]
