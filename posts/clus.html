@@ -379,40 +379,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Barbara Bailey is the queen of broadcast news ...</td>
 <td>pop_culture</td>
 <td>2</td>
-<td>2.815385</td>
-<td>-4.618085</td>
+<td>14.320232</td>
+<td>-10.883064</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>There s regular people and then there s {@Bail...</td>
 <td>pop_culture</td>
 <td>2</td>
-<td>3.692987</td>
-<td>-4.774335</td>
+<td>15.338669</td>
+<td>-10.596313</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>POWER BOOK 2 EPISODE 1 REVIEW!! (MY THOUGHTS) ...</td>
-<td>pop_culture</td>
-<td>2</td>
-<td>5.896851</td>
-<td>17.536180</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>I m still ticked at {@NBC Sports@} for moving ...</td>
+<td>sports_&amp;_gaming</td>
+<td>1</td>
+<td>-21.025387</td>
+<td>-2.219523</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>you cannot simultaneously prepare and prevent...</td>
 <td>pop_culture</td>
 <td>2</td>
-<td>10.823426</td>
-<td>11.094867</td>
+<td>14.908103</td>
+<td>-17.337248</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>The time is now! The 1st edition of the 192 ...</td>
 <td>arts_&amp;_culture</td>
 <td>2</td>
-<td>6.077450</td>
-<td>8.689940</td>
+<td>10.824976</td>
+<td>3.334099</td>
 </tr>
 </tbody>
 </table>
@@ -454,43 +454,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>cluster_summary(df,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>  0%|          | 0/5 [00:00&lt;?, ?it/s] 20%|██        | 1/5 [00:02&lt;00:10,  2.59s/it] 40%|████      | 2/5 [00:04&lt;00:07,  2.40s/it] 60%|██████    | 3/5 [00:07&lt;00:04,  2.40s/it] 80%|████████  | 4/5 [00:09&lt;00:02,  2.45s/it]100%|██████████| 5/5 [00:12&lt;00:00,  2.40s/it]100%|██████████| 5/5 [00:12&lt;00:00,  2.42s/it]</code></pre>
+<pre><code>  0%|          | 0/5 [00:00&lt;?, ?it/s] 20%|██        | 1/5 [00:02&lt;00:10,  2.59s/it] 40%|████      | 2/5 [00:04&lt;00:06,  2.31s/it] 60%|██████    | 3/5 [00:07&lt;00:04,  2.33s/it] 80%|████████  | 4/5 [00:09&lt;00:02,  2.28s/it]100%|██████████| 5/5 [00:11&lt;00:00,  2.30s/it]100%|██████████| 5/5 [00:11&lt;00:00,  2.32s/it]</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Asking the LLM for a summary for cluster indexed 2. 
 
-Ground truth labels: business_&amp;_entrepreneurs, daily_life, daily_life
-The first tweet is related to job hiring and marketing opportunities. It mentions the company's achievements in November and highlights the potential for a great storyteller. The tweet invites interested individuals to inquire for more details.
+Ground truth labels: science_&amp;_technology, arts_&amp;_culture, daily_life
+The first tweet is related to the category of "COVID-19 and Global Health Crisis". It discusses the challenges faced in investigating the origins of the pandemic and emphasizes the need for more transparency from China.
 
-The second tweet conveys a message about finding joy in the small things in life. It mentions a person named Kyle
-
-Asking the LLM for a summary for cluster indexed 3. 
-
-Ground truth labels: pop_culture, pop_culture, pop_culture
-Based on the given tweets, the categories for each tweet can be described as follows:
-
-1. Tweet 1: Music Appreciation
-   Description: This tweet is expressing appreciation for the music crew on NBC Entertainment's show, specifically mentioning the artist "Drivin N Cryin." The hashtag "#aintitstrange
+The second tweet is related to the category of "Urban Development and City Planning". It expresses excitement about the development and future
 
 Asking the LLM for a summary for cluster indexed 1. 
 
 Ground truth labels: sports_&amp;_gaming, sports_&amp;_gaming, sports_&amp;_gaming
-Category: Sports
+The given tweets can be categorized as follows:
 
-Description: The given tweets are related to sports. The first tweet discusses an NFLDraft conspiracy theory, reviews the Houston Sports Awards, and includes an interview with Gary Kubiak. The second tweet mentions a 21-year-old Southampton left-back likely leaving the club on loan. The third tweet features an
+1. Tweet 1: Category - Sports
+   Description: This tweet is about a brand new facility at Texas Motor Speedway for the AllStarRace night. It mentions Tyler Reddick leading the field of 22 cars to the start of the race. The hashtag #
+
+Asking the LLM for a summary for cluster indexed 3. 
+
+Ground truth labels: pop_culture, pop_culture, pop_culture
+Based on the given tweets, the categories and descriptions are as follows:
+
+1. Music Promotion: The first tweet is promoting an album by the artist Ace Word, encouraging people to listen to it on various music platforms. It mentions Burna Boy, Wizkid, and Cool FM Nigeria 96.9 as well.
+
+
 
 Asking the LLM for a summary for cluster indexed 0. 
 
 Ground truth labels: sports_&amp;_gaming, sports_&amp;_gaming, sports_&amp;_gaming
-The first tweet is about a boxing match between Loma and Teofimo Lopez. The person mentions that Loma started slow but dominated the second half of the fight. They also mention that if Loma had won the final round, it would have been a draw. The category for this tweet could be "Sports -
+Category: Sports
+
+Description: The given tweets are related to a sports event, specifically a fighting match. The tweets mention the fighters, their performance in the rounds, and the sportsmanship displayed. The first tweet mentions a specific fighter and their performance in the first round. The second tweet shows respect for both fighters and discusses
 
 Asking the LLM for a summary for cluster indexed 4. 
 
 Ground truth labels: pop_culture, pop_culture, pop_culture
-The given tweets belong to the category of BTS fandom. 
+Category: BTS Fan Support
 
-1. The first tweet expresses the person's liking for the song "WHO" by LV, JK &amp; JM, which likely refers to members of BTS (LV - V, JK - Jungkook, JM - Jimin). They mention identifying with the story</code></pre>
+Description: The given tweets are related to the K-pop group BTS. The first tweet congratulates BTS on winning an award for Best Dance Performance Male Group. The second tweet provides updates on the rankings of BTS songs on Spotify Philippines Top 200. The third tweet expresses the user's liking for</code></pre>
 </div>
 </div>
 <p>Finally, let’s visualize our clusters to see how HDBSCAN works!</p>
